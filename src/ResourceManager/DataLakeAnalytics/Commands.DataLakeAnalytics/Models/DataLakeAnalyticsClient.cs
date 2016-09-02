@@ -462,10 +462,10 @@ namespace Microsoft.Azure.Commands.DataLakeAnalytics.Models
             }
         }
 
-        public USqlCredential CreateCredential(string accountName, string databaseName,
+        public void CreateCredential(string accountName, string databaseName,
             string credentialName, string userId, string password, string hostUri)
         {
-            return _catalogClient.Catalog.CreateCredential(accountName, databaseName, credentialName,
+            _catalogClient.Catalog.CreateCredential(accountName, databaseName, credentialName,
                 new DataLakeAnalyticsCatalogCredentialCreateParameters
                 {
                     Password = password,
@@ -474,10 +474,10 @@ namespace Microsoft.Azure.Commands.DataLakeAnalytics.Models
                 });
         }
 
-        public USqlCredential UpdateCredentialPassword(string accountName, string databaseName,
+        public void UpdateCredentialPassword(string accountName, string databaseName,
             string credentialName, string userId, string password, string newPassword, string hostUri)
         {
-            return _catalogClient.Catalog.UpdateCredential(accountName, databaseName, credentialName,
+            _catalogClient.Catalog.UpdateCredential(accountName, databaseName, credentialName,
                 new DataLakeAnalyticsCatalogCredentialUpdateParameters
                 {
                     Password = password,
